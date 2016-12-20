@@ -42,6 +42,10 @@ class TweetBox extends Component{
       photoAdded: false
     }
     this.handleChange = this.handleChange.bind(this)
+    this.togglePhoto = this.togglePhoto.bind(this)
+    // this.overflowAlert = this.overflowAlert.bind(this)
+
+    // this.remainingCharacters = this.remainingCharacters.bind(this)
   }
 
   handleChange(event) {
@@ -51,6 +55,7 @@ class TweetBox extends Component{
   togglePhoto(event) {
     this.setState({ photoAdded: !this.state.photoAdded });
   }
+
   overflowAlert() {
     if (this.remainingCharacters() < 0) {
       if (this.state.photoAdded) {
@@ -72,6 +77,7 @@ class TweetBox extends Component{
       return "";
     }
   }
+
   remainingCharacters() {
     if (this.state.photoAdded) {
       return 140 - 23 - this.state.text.length;
